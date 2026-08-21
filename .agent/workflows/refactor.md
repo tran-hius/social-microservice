@@ -1,3 +1,17 @@
+---
+workflow: refactor
+target_services:
+  - auth-service
+  - api-gateway
+  - shared
+required_skills:
+  - .agent/skills/backend-development/SKILL.md
+  - .agent/skills/code-review/SKILL.md
+lazy_load_context:
+  - .agent/architecture/fitness-rules.md
+  - .agent/architecture/architecture-rules.md
+---
+
 # 🔄 Refactoring Workflow
 
 A disciplined workflow for restructuring code while strictly preserving external behavior.
@@ -20,9 +34,3 @@ A disciplined workflow for restructuring code while strictly preserving external
 5. Verify build (`npm run build`) and tests (`npm test`) after each modification.
 6. Review refactored code against cleanliness and architectural standards.
 7. Auto Commit & Push (`refactor(scope): ...`).
-
----
-
-## Applicable Skills
-- Primary: `backend-development`, `code-review`
-- Supporting: `testing`, `system-design`

@@ -1,3 +1,16 @@
+---
+workflow: bug-fix
+target_services:
+  - auth-service
+  - api-gateway
+  - shared
+required_skills:
+  - .agent/skills/testing/SKILL.md
+  - .agent/skills/backend-development/SKILL.md
+lazy_load_context:
+  - .agent/knowledge/dependency-map.md
+---
+
 # 🐛 Bug Fixing Workflow
 
 A root-cause-driven, regression-proof workflow for diagnosing and fixing software bugs.
@@ -29,9 +42,3 @@ A root-cause-driven, regression-proof workflow for diagnosing and fixing softwar
    ↓
 11. Auto Commit & Push (fix(scope): ...)
 ```
-
----
-
-## Applicable Skills
-- Primary: `testing`, `backend-development`
-- Supporting: `database`, `security`, `performance`

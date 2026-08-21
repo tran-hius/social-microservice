@@ -1,3 +1,15 @@
+---
+workflow: architecture-audit
+target_services:
+  - all
+required_skills:
+  - .agent/skills/system-design/SKILL.md
+  - .agent/skills/code-review/SKILL.md
+lazy_load_context:
+  - .agent/architecture/fitness-rules.md
+  - .agent/architecture/architecture-rules.md
+---
+
 # 🧐 Architecture Audit Workflow
 
 A periodic health assessment procedure to detect architectural drift, boundary violations, and code rot.
@@ -23,9 +35,3 @@ A periodic health assessment procedure to detect architectural drift, boundary v
    ↓
 8. Output Overall Architecture Health Rating (PASS / WARNING / FAIL)
 ```
-
----
-
-## Applicable Skills
-- Primary: `system-design`, `code-review`
-- Supporting: `backend-development`, `microservices`, `security`

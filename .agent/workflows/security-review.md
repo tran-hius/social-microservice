@@ -1,3 +1,16 @@
+---
+workflow: security-review
+target_services:
+  - auth-service
+  - api-gateway
+required_skills:
+  - .agent/skills/security/SKILL.md
+  - .agent/skills/threat-modeling/SKILL.md
+lazy_load_context:
+  - .agent/checklists/security.md
+  - .agent/architecture/invariants.md
+---
+
 # 🔒 Security Review Workflow
 
 A methodical procedure for auditing codebases, authentication flows, and data boundaries against security threats.
@@ -25,9 +38,3 @@ A methodical procedure for auditing codebases, authentication flows, and data bo
    ↓
 9. Generate Security Audit Report with Remediation Plans
 ```
-
----
-
-## Applicable Skills
-- Primary: `security`, `threat-modeling`
-- Supporting: `code-review`, `backend-development`

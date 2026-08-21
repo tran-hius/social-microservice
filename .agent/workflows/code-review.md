@@ -1,3 +1,18 @@
+---
+workflow: code-review
+target_services:
+  - auth-service
+  - api-gateway
+  - shared
+required_skills:
+  - .agent/skills/code-review/SKILL.md
+  - .agent/skills/security/SKILL.md
+  - .agent/skills/database/SKILL.md
+lazy_load_context:
+  - .agent/checklists/security.md
+  - .agent/checklists/database.md
+---
+
 # 🔍 Code Review Workflow
 
 A comprehensive multi-dimensional review workflow for examining code changes across full execution flows.
@@ -16,9 +31,3 @@ A comprehensive multi-dimensional review workflow for examining code changes acr
 9. Review **Concurrency & Distributed Systems**: Idempotency, retries, correlation IDs.
 10. Review **Tests**: Realistic failure scenarios and assertions.
 11. Generate structured review report categorized by severity (`CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFO`).
-
----
-
-## Applicable Skills
-- Primary: `code-review`
-- Supporting: `database`, `security`, `performance`, `microservices`

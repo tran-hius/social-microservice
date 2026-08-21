@@ -1,3 +1,19 @@
+---
+workflow: feature-development
+target_services:
+  - auth-service
+  - api-gateway
+  - shared
+required_skills:
+  - .agent/skills/backend-development/SKILL.md
+  - .agent/skills/database/SKILL.md
+  - .agent/skills/security/SKILL.md
+  - .agent/skills/testing/SKILL.md
+lazy_load_context:
+  - .agent/knowledge/api-catalog.md
+  - .agent/architecture/invariants.md
+---
+
 # 🚀 Feature Implementation Workflow
 
 A structured 16-step procedural workflow for developing new features across backend microservices.
@@ -9,9 +25,9 @@ A structured 16-step procedural workflow for developing new features across back
 ```text
 1. Understand Request
    ↓
-2. Inspect Project & Existing Codebase
+2. Inspect Project & Target Service Files
    ↓
-3. Identify Affected Modules & Services
+3. Identify Affected Modules & Interfaces
    ↓
 4. Inspect Architecture & Conventions
    ↓
@@ -39,9 +55,3 @@ A structured 16-step procedural workflow for developing new features across back
    ↓
 16. Auto Commit & Push (Conventional Commits) & Final Summary
 ```
-
----
-
-## Applicable Skills
-- Primary: `backend-development`
-- Supporting: `database`, `security`, `testing`, `microservices`

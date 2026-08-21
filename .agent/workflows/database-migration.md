@@ -1,3 +1,16 @@
+---
+workflow: database-migration
+target_services:
+  - auth-service
+  - shared
+required_skills:
+  - .agent/skills/migration/SKILL.md
+  - .agent/skills/database/SKILL.md
+lazy_load_context:
+  - .agent/knowledge/data-ownership.md
+  - .agent/templates/migration-plan.md
+---
+
 # 🚚 Database Migration Workflow
 
 A zero-downtime, safe workflow for executing database schema and data transformations.
@@ -29,9 +42,3 @@ A zero-downtime, safe workflow for executing database schema and data transforma
    ↓
 11. Update Data Ownership & Schema Documentation
 ```
-
----
-
-## Applicable Skills
-- Primary: `migration`, `database`
-- Supporting: `backend-development`, `devops`

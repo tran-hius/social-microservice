@@ -1,3 +1,15 @@
+---
+workflow: incident-response
+target_services:
+  - all
+required_skills:
+  - .agent/skills/reliability/SKILL.md
+  - .agent/skills/devops/SKILL.md
+lazy_load_context:
+  - .agent/knowledge/dependency-map.md
+  - .agent/templates/incident-report.md
+---
+
 # 🚨 Incident Response Workflow
 
 An urgent operational workflow for triaging, mitigating, and resolving live production incidents.
@@ -25,9 +37,3 @@ An urgent operational workflow for triaging, mitigating, and resolving live prod
    ↓
 9. Author Incident Post-Mortem & Action Items
 ```
-
----
-
-## Applicable Skills
-- Primary: `devops`, `reliability`, `performance`
-- Supporting: `database`, `microservices`, `security`

@@ -1,3 +1,15 @@
+---
+workflow: architecture-change
+target_services:
+  - all
+required_skills:
+  - .agent/skills/system-design/SKILL.md
+  - .agent/skills/backend-development/SKILL.md
+lazy_load_context:
+  - .agent/architecture/system-context.md
+  - .agent/architecture/architecture-rules.md
+---
+
 # 🏛️ Architecture Change Workflow
 
 A structured procedure for proposing, validating, and implementing significant architectural shifts.
@@ -27,9 +39,3 @@ A structured procedure for proposing, validating, and implementing significant a
    ↓
 10. Update Knowledge Catalogs & System Map
 ```
-
----
-
-## Applicable Skills
-- Primary: `system-design`, `backend-development`
-- Supporting: `microservices`, `database`, `security`, `reliability`

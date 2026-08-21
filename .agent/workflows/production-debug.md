@@ -1,3 +1,17 @@
+---
+workflow: production-debug
+target_services:
+  - auth-service
+  - api-gateway
+  - shared
+required_skills:
+  - .agent/skills/devops/SKILL.md
+  - .agent/skills/performance/SKILL.md
+  - .agent/skills/reliability/SKILL.md
+lazy_load_context:
+  - .agent/knowledge/dependency-map.md
+---
+
 # 🚨 Production Debugging Workflow
 
 An evidence-driven incident investigation and root-cause analysis runbook.
@@ -31,9 +45,3 @@ An evidence-driven incident investigation and root-cause analysis runbook.
    ↓
 12. Document Post-Mortem Report
 ```
-
----
-
-## Applicable Skills
-- Primary: `devops`, `performance`
-- Supporting: `database`, `microservices`, `security`
