@@ -3,7 +3,7 @@
 ## 🎯 Quy chuẩn phát triển cho toàn bộ AI Agents trong dự án:
 
 1. **RAG & Index-First Navigation Mandate**:
-   - **BẮT BUỘC**: Always read `.agent/INDEX.md` first to locate required resources. Do NOT read other `.md` files unless specifically directed by the routing table.
+   - **BẮT BUỘC**: Luôn đọc `.agent/INDEX.md` đầu tiên để định tuyến qua 8 bước (Intent $\rightarrow$ Complexity $\rightarrow$ Workflow $\rightarrow$ Primary Skill $\rightarrow$ Supporting Skills $\rightarrow$ Context Budget $\le 6$ files $\rightarrow$ Lazy Context $\rightarrow$ Execution). Tuyệt đối không đọc các file `.md` không liên quan.
 
 2. **Kiến trúc phân lớp (Layered Architecture)**:
    - `DTO`: Khai báo validation schema bằng `class-validator`.
