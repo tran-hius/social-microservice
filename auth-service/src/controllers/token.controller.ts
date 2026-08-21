@@ -1,9 +1,9 @@
 import { Request, Response, NextFunction } from 'express';
-import { ITokenService } from '../interfaces';
-import { tokenService } from '../services/token.service';
-import { ApiResponse } from '../utils/api-response';
-import { UnauthorizedError } from '../utils/custom-errors';
-import { RefreshTokenDto } from '../dtos';
+import { ITokenService } from '../interfaces/index.js';
+import { tokenService } from '../services/token.service.js';
+import { ApiResponse } from '../utils/api-response.js';
+import { UnauthorizedError } from '../utils/custom-errors.js';
+import { RefreshTokenDto } from '../dtos/index.js';
 
 export class TokenController {
   constructor(private readonly service: ITokenService = tokenService) {}

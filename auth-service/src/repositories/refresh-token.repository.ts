@@ -1,6 +1,6 @@
 import mongoose, { Model } from 'mongoose';
-import { RefreshTokenModel, IRefreshTokenDocument } from '../models/refresh-token.model';
-import { IRefreshTokenRepository } from '../interfaces';
+import { RefreshTokenModel, IRefreshTokenDocument } from '../models/refresh-token.model.js';
+import { IRefreshTokenRepository } from '../interfaces/index.js';
 
 export class RefreshTokenRepository implements IRefreshTokenRepository {
   constructor(private readonly model: Model<IRefreshTokenDocument> = RefreshTokenModel) {}

@@ -3,13 +3,13 @@ import cors from "cors";
 import helmet from "helmet";
 import dotenv from "dotenv";
 import { createProxyMiddleware } from "http-proxy-middleware";
-import { correlationIdMiddleware } from "./middlewares/correlation-id.middleware";
-import { optionalAuthMiddleware } from "./middlewares/auth.middleware";
+import { correlationIdMiddleware } from "./middlewares/correlation-id.middleware.js";
+import { optionalAuthMiddleware } from "./middlewares/auth.middleware.js";
 
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8000;
 
 const AUTH_SERVICE_URL =
   process.env.AUTH_SERVICE_URL || "http://localhost:8001";
@@ -48,7 +48,7 @@ app.get("/health", (req, res) => {
 });
 
 app.use(
-  "api/auth",
+  "/api/auth",
   createProxyMiddleware({
     target: AUTH_SERVICE_URL,
     changeOrigin: true,
@@ -59,7 +59,7 @@ app.use(
 );
 
 app.use(
-  "api/users",
+  "/api/users",
   createProxyMiddleware({
     target: USER_SERVICE_URL,
     changeOrigin: true,
@@ -70,7 +70,7 @@ app.use(
 );
 
 app.use(
-  "api/posts",
+  "/api/posts",
   createProxyMiddleware({
     target: POST_SERVICE_URL,
     changeOrigin: true,

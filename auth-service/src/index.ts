@@ -2,10 +2,10 @@ import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import dotenv from 'dotenv';
-import { connectDatabase, closeDatabase } from './config/db';
-import authRoutes from './routes';
-import { errorHandler, notFoundHandler } from './middlewares/error.middleware';
-import { logger } from './utils/logger';
+import { connectDatabase, closeDatabase } from './config/db.js';
+import authRoutes from './routes/index.js';
+import { errorHandler, notFoundHandler } from './middlewares/error.middleware.js';
+import { logger } from './utils/logger.js';
 
 dotenv.config();
 

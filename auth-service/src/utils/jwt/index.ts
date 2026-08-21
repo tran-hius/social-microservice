@@ -1,1 +1,1 @@
-export * from './jwt.util';
+export * from './jwt.util.js';

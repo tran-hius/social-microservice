@@ -1,2 +1,2 @@
-export * from './hash';
-export * from './compare';
+export * from './hash.js';
+export * from './compare.js';

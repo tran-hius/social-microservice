@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { ClassConstructor, plainToInstance } from 'class-transformer';
 import { validate, ValidationError as ClassValidatorError } from 'class-validator';
-import { ValidationError } from '../utils/custom-errors';
+import { ValidationError } from '../utils/custom-errors.js';
 
 export const validateDto = <T extends object>(
   dtoClass: ClassConstructor<T>,

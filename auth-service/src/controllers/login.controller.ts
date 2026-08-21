@@ -1,8 +1,8 @@
 import { Request, Response, NextFunction } from 'express';
-import { ILoginService } from '../interfaces';
-import { loginService } from '../services/login.service';
-import { ApiResponse } from '../utils/api-response';
-import { LoginDto } from '../dtos';
+import { ILoginService } from '../interfaces/index.js';
+import { loginService } from '../services/login.service.js';
+import { ApiResponse } from '../utils/api-response.js';
+import { LoginDto } from '../dtos/index.js';
 
 export class LoginController {
   constructor(private readonly service: ILoginService = loginService) {}

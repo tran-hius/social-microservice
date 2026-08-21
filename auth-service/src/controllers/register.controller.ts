@@ -1,8 +1,8 @@
 import { Request, Response, NextFunction } from 'express';
-import { IRegisterService } from '../interfaces';
-import { registerService } from '../services/register.service';
-import { ApiResponse } from '../utils/api-response';
-import { RegisterDto } from '../dtos';
+import { IRegisterService } from '../interfaces/index.js';
+import { registerService } from '../services/register.service.js';
+import { ApiResponse } from '../utils/api-response.js';
+import { RegisterDto } from '../dtos/index.js';
 
 export class RegisterController {
   constructor(private readonly service: IRegisterService = registerService) {}

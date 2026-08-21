@@ -1,5 +1,5 @@
-import { RegisterDto, LoginDto, AuthResponseDto, UserResponseDto } from '../dtos';
-import { ITokenPair } from './auth.interface';
+import { RegisterDto, LoginDto, AuthResponseDto, UserResponseDto } from '../dtos/index.js';
+import { ITokenPair } from './auth.interface.js';
 
 export interface IRegisterService {
   execute(dto: RegisterDto, metadata?: { userAgent?: string; ipAddress?: string }): Promise<AuthResponseDto>;

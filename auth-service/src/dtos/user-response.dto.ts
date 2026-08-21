@@ -1,4 +1,4 @@
-import { UserRole, UserStatus } from '../models/user.model';
+import { UserRole, UserStatus } from '../models/user.model.js';
 
 export interface UserResponseDto {
   id: string;

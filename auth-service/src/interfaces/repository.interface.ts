@@ -1,5 +1,5 @@
-import { IUserDocument, UserRole } from '../models/user.model';
-import { IRefreshTokenDocument } from '../models/refresh-token.model';
+import { IUserDocument, UserRole } from '../models/user.model.js';
+import { IRefreshTokenDocument } from '../models/refresh-token.model.js';
 
 export interface IUserRepository {
   create(userData: {

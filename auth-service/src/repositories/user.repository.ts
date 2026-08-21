@@ -1,6 +1,6 @@
 import { Model } from 'mongoose';
-import { UserModel, IUserDocument, UserRole } from '../models/user.model';
-import { IUserRepository } from '../interfaces';
+import { UserModel, IUserDocument, UserRole } from '../models/user.model.js';
+import { IUserRepository } from '../interfaces/index.js';
 
 export class UserRepository implements IUserRepository {
   constructor(private readonly model: Model<IUserDocument> = UserModel) {}

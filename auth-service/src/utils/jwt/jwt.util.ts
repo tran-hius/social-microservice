@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
-import { IJwtPayload, ITokenPair } from '../../interfaces/auth.interface';
-import { UnauthorizedError } from '../custom-errors';
+import { IJwtPayload, ITokenPair } from '../../interfaces/auth.interface.js';
+import { UnauthorizedError } from '../custom-errors.js';
 
 const ACCESS_SECRET = process.env.ACCESS_TOKEN_SECRET || 'supersecret_access_key_social_2026';
 const REFRESH_SECRET = process.env.REFRESH_TOKEN_SECRET || 'supersecret_refresh_key_social_2026';

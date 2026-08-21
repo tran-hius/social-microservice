@@ -1,12 +1,12 @@
-import { ILoginService, IUserRepository, IRefreshTokenRepository } from '../interfaces';
-import { LoginDto, AuthResponseDto } from '../dtos';
-import { userRepository } from '../repositories/user.repository';
-import { refreshTokenRepository } from '../repositories/refresh-token.repository';
-import { comparePassword } from '../utils/password';
-import { generateAuthTokens } from '../utils/jwt';
-import { UserMapper } from '../mappers/user.mapper';
-import { UnauthorizedError, ForbiddenError } from '../utils/custom-errors';
-import { logger } from '../utils/logger';
+import { ILoginService, IUserRepository, IRefreshTokenRepository } from '../interfaces/index.js';
+import { LoginDto, AuthResponseDto } from '../dtos/index.js';
+import { userRepository } from '../repositories/user.repository.js';
+import { refreshTokenRepository } from '../repositories/refresh-token.repository.js';
+import { comparePassword } from '../utils/password/index.js';
+import { generateAuthTokens } from '../utils/jwt/index.js';
+import { UserMapper } from '../mappers/user.mapper.js';
+import { UnauthorizedError, ForbiddenError } from '../utils/custom-errors.js';
+import { logger } from '../utils/logger.js';
 
 const REFRESH_TOKEN_DAYS = 7;
 

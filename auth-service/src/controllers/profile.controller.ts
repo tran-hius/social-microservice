@@ -1,8 +1,8 @@
 import { Request, Response, NextFunction } from 'express';
-import { IProfileService } from '../interfaces';
-import { profileService } from '../services/profile.service';
-import { ApiResponse } from '../utils/api-response';
-import { UnauthorizedError } from '../utils/custom-errors';
+import { IProfileService } from '../interfaces/index.js';
+import { profileService } from '../services/profile.service.js';
+import { ApiResponse } from '../utils/api-response.js';
+import { UnauthorizedError } from '../utils/custom-errors.js';
 
 export class ProfileController {
   constructor(private readonly service: IProfileService = profileService) {}

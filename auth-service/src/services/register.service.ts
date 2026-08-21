@@ -1,12 +1,12 @@
-import { IRegisterService, IUserRepository, IRefreshTokenRepository } from '../interfaces';
-import { RegisterDto, AuthResponseDto } from '../dtos';
-import { userRepository } from '../repositories/user.repository';
-import { refreshTokenRepository } from '../repositories/refresh-token.repository';
-import { hashPassword } from '../utils/password';
-import { generateAuthTokens } from '../utils/jwt';
-import { UserMapper } from '../mappers/user.mapper';
-import { ConflictError } from '../utils/custom-errors';
-import { logger } from '../utils/logger';
+import { IRegisterService, IUserRepository, IRefreshTokenRepository } from '../interfaces/index.js';
+import { RegisterDto, AuthResponseDto } from '../dtos/index.js';
+import { userRepository } from '../repositories/user.repository.js';
+import { refreshTokenRepository } from '../repositories/refresh-token.repository.js';
+import { hashPassword } from '../utils/password/index.js';
+import { generateAuthTokens } from '../utils/jwt/index.js';
+import { UserMapper } from '../mappers/user.mapper.js';
+import { ConflictError } from '../utils/custom-errors.js';
+import { logger } from '../utils/logger.js';
 
 const REFRESH_TOKEN_DAYS = 7;
 

@@ -1,9 +1,9 @@
-import { ITokenService, IUserRepository, IRefreshTokenRepository, ITokenPair } from '../interfaces';
-import { userRepository } from '../repositories/user.repository';
-import { refreshTokenRepository } from '../repositories/refresh-token.repository';
-import { generateAuthTokens, verifyRefreshToken } from '../utils/jwt';
-import { UnauthorizedError, ForbiddenError } from '../utils/custom-errors';
-import { logger } from '../utils/logger';
+import { ITokenService, IUserRepository, IRefreshTokenRepository, ITokenPair } from '../interfaces/index.js';
+import { userRepository } from '../repositories/user.repository.js';
+import { refreshTokenRepository } from '../repositories/refresh-token.repository.js';
+import { generateAuthTokens, verifyRefreshToken } from '../utils/jwt/index.js';
+import { UnauthorizedError, ForbiddenError } from '../utils/custom-errors.js';
+import { logger } from '../utils/logger.js';
 
 const REFRESH_TOKEN_DAYS = 7;
 

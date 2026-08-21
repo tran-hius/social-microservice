@@ -17,6 +17,7 @@ Use this high-density router index to locate and dynamically load ONLY the speci
 | **Database Schema / Migration** | `.agent/workflows/database-migration.md` | `.agent/skills/database/SKILL.md` | `.agent/knowledge/data-ownership.md` |
 | **Security Audit / Auth Check** | `.agent/workflows/security-review.md` | `.agent/skills/security/SKILL.md` | `.agent/checklists/security.md` |
 | **Performance Optimization** | `.agent/workflows/refactor.md` | `.agent/skills/performance/SKILL.md` | `.agent/checklists/production-readiness.md` |
+| **Technical Mentoring & Teaching**| `.agent/workflows/feature.md` | `.agent/skills/senior-mentor/SKILL.md` | `.agent/knowledge/project-map.md` |
 
 ---
 
@@ -38,6 +39,7 @@ Use this high-density router index to locate and dynamically load ONLY the speci
 
 ### 3. 🛠️ Specialized Skills (`.agent/skills/`)
 - **Backend Architecture & APIs**: `.agent/skills/backend-development/SKILL.md`
+- **Technical Mentoring & Education**: `.agent/skills/senior-mentor/SKILL.md`
 - **Code Review Standards**: `.agent/skills/code-review/SKILL.md`
 - **Testing & Test Pyramid**: `.agent/skills/testing/SKILL.md`
 - **PostgreSQL & MongoDB Design**: `.agent/skills/database/SKILL.md`

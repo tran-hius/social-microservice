@@ -1,7 +1,7 @@
 import { Router } from 'express';
-import { loginController } from '../controllers';
-import { validateDto } from '../middlewares/validation.middleware';
-import { LoginDto } from '../dtos';
+import { loginController } from '../controllers/index.js';
+import { validateDto } from '../middlewares/validation.middleware.js';
+import { LoginDto } from '../dtos/index.js';
 
 const router = Router();
 

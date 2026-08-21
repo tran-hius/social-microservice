@@ -1,8 +1,8 @@
-import { IProfileService, IUserRepository } from '../interfaces';
-import { UserResponseDto } from '../dtos';
-import { userRepository } from '../repositories/user.repository';
-import { UserMapper } from '../mappers/user.mapper';
-import { NotFoundError } from '../utils/custom-errors';
+import { IProfileService, IUserRepository } from '../interfaces/index.js';
+import { UserResponseDto } from '../dtos/index.js';
+import { userRepository } from '../repositories/user.repository.js';
+import { UserMapper } from '../mappers/user.mapper.js';
+import { NotFoundError } from '../utils/custom-errors.js';
 
 export class ProfileService implements IProfileService {
   constructor(private readonly userRepo: IUserRepository = userRepository) {}

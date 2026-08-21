@@ -1,5 +1,5 @@
 import { IsEmail, IsNotEmpty, MinLength, IsOptional, IsEnum, IsString } from 'class-validator';
-import { UserRole } from '../models/user.model';
+import { UserRole } from '../models/user.model.js';
 
 export class RegisterDto {
   @IsEmail({}, { message: 'Invalid email address format' })
