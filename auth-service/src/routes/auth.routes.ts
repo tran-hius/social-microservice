@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import { authController } from '../controllers/auth.controller';
 import { validateDto } from '../middlewares/validation.middleware';
-import { RegisterDto, LoginDto, RefreshTokenDto } from '../dtos/user.dto';
+import { RegisterDto, LoginDto, RefreshTokenDto } from '../dtos';
 
 const router = Router();
 

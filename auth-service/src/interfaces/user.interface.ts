@@ -1,5 +1,5 @@
 import { IUserDocument, UserRole } from '../models/user.model';
-import { RegisterDto, LoginDto, AuthResponseDto, UserResponseDto } from '../dtos/user.dto';
+import { RegisterDto, LoginDto, AuthResponseDto, UserResponseDto } from '../dtos';
 import { ITokenPair } from './auth.interface';
 
 export interface IUserRepository {

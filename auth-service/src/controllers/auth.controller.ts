@@ -3,7 +3,7 @@ import { IAuthService } from '../interfaces/user.interface';
 import { authService } from '../services/auth.service';
 import { ApiResponse } from '../utils/api-response';
 import { UnauthorizedError } from '../utils/custom-errors';
-import { RegisterDto, LoginDto, RefreshTokenDto } from '../dtos/user.dto';
+import { RegisterDto, LoginDto, RefreshTokenDto } from '../dtos';
 
 export class AuthController {
   constructor(private readonly authService: IAuthService) {}

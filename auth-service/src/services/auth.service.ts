@@ -1,5 +1,5 @@
 import { IAuthService, IUserRepository } from '../interfaces/user.interface';
-import { RegisterDto, LoginDto, AuthResponseDto, UserResponseDto } from '../dtos/user.dto';
+import { RegisterDto, LoginDto, AuthResponseDto, UserResponseDto } from '../dtos';
 import { ITokenPair } from '../interfaces/auth.interface';
 import { userRepository } from '../repositories/user.repository';
 import { refreshTokenRepository, IRefreshTokenRepository } from '../repositories/refresh-token.repository';
