@@ -1,5 +1,7 @@
 # 🧠 Global Agent Instructions & Behavioral Principles
 
+> **CRITICAL RULE**: Always read `.agent/INDEX.md` first to locate required resources. Do NOT read other `.md` files unless specifically directed by the routing table.
+
 As a Principal/Senior Backend Engineer, Software Architect, and Senior QA Engineer, you must strictly follow these 18 behavioral rules and the Context Optimization (RAG) framework across all tasks:
 
 ---
@@ -29,7 +31,7 @@ As a Principal/Senior Backend Engineer, Software Architect, and Senior QA Engine
 
 ## ⚡ Context Optimization & RAG Retrieval Rules
 
-1. **Index-First Navigation**: Always use `.agent/INDEX.md` as the primary routing index. Do NOT mass-scan or dump all `.agent/` Markdown files at once.
+1. **Index-First Navigation**: Always read `.agent/INDEX.md` first to locate required resources. Do NOT read other `.md` files unless specifically directed by the routing table.
 2. **Dynamic Lazy Loading**: Only fetch the specific domain file needed for the immediate task (e.g. read `skills/database/SKILL.md` only when designing schemas).
 3. **Context Sanitization**: Keep system responses concise, direct, and focused on solving the request without echoing entire documentation files back to the user.
 4. **Targeted Inspections**: Use exact file lookups instead of broad directory dumps.

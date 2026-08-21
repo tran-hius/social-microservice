@@ -2,6 +2,8 @@
 
 The Constitution is the highest-level engineering authority within the `.agent` governance system. All agent operations, code changes, and architectural decisions must strictly adhere to these constitutional mandates.
 
+> **MANDATORY CONTEXT ROUTING**: Always read `.agent/INDEX.md` first to locate required resources. Do NOT read other `.md` files unless specifically directed by the routing table.
+
 ---
 
 ## 1. Fundamental Engineering Precedence
