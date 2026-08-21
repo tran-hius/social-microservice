@@ -4,30 +4,50 @@ description: >-
   Senior QA/Test Engineer skill. Guides the AI to design behavior-oriented unit, integration, and E2E test suites with realistic edge cases and failure mode coverage.
 ---
 
-# 🧪 Testing Skill (Senior QA / Test Engineer Level)
+# 🧪 Testing Skill
 
-Kỹ năng kiểm thử tự động toàn diện theo phương pháp Behavior-Driven Testing và kiểm tra các kịch bản lỗi (Failure Modes).
-
----
-
-## 📚 Tài liệu Hướng dẫn Kiểm thử:
-
-- 🧩 [Kiểm thử Đơn vị Nghiệp vụ (Unit Testing)](./unit-testing.md)
-- 🔌 [Kiểm thử Tích hợp Cơ sở dữ liệu & Services (Integration Testing)](./integration-testing.md)
-- 🌐 [Kiểm thử API Đầu-Cuối (E2E Testing)](./e2e-testing.md)
-- 🎭 [Chiến lược Mocking Phụ thuộc (Mocking Guide)](./mocking.md)
-- 🗄️ [Quản lý Dữ liệu Kiểm thử (Test Database)](./test-database.md)
-- ⚠️ [Danh mục Trường hợp Biên (Edge Cases)](./edge-cases.md)
-- 📐 [Chiến lược Kim tự tháp Kiểm thử (Test Strategy)](./test-strategy.md)
-- 🎯 [Độ phủ Code có Ý nghĩa (Coverage)](./coverage.md)
+## Purpose
+Establishes behavior-driven testing strategies focusing on domain edge cases, boundary conditions, failure paths, and distributed system anomalies.
 
 ---
 
-## 🛠️ Quy trình Kiểm thử Bắt buộc:
+## When to Use
+- Writing Unit Tests for domain services, mappers, and utility functions.
+- Writing Integration Tests for repositories, database queries, cache operations, and message queues.
+- Writing End-to-End (E2E) API tests for user workflows via Supertest.
+- Creating regression tests after identifying bugs.
 
-1. **Kiểm tra Biên dịch (Build Check)**:
-   - Chạy `npm run build` hoặc `npx tsc --noEmit`. Bắt buộc đạt 0 lỗi.
-2. **Thực thi Unit Tests**:
-   - Chạy `npm test` để kiểm tra toàn bộ tầng Service, Mapper, Utils với Mock Repositories.
-3. **Thực thi Integration / E2E Tests**:
-   - Kiểm tra các endpoint HTTP thực tế qua Supertest.
+## When NOT to Use
+- Blindly generating tests purely to boost line coverage percentages without meaningful assertions.
+
+---
+
+## The Test Pyramid & Strategy
+- **Unit Tests (70%)**: Fast, memory-only execution. Tests core business logic with mocked dependencies.
+- **Integration Tests (20%)**: Tests interaction between services and infrastructure (MongoDB test instances, Redis, RabbitMQ).
+- **E2E Tests (10%)**: Tests full HTTP request/response lifecycles and authentication contracts.
+
+---
+
+## Mandatory Test Scenarios
+For every service method:
+1. **Happy Path**: Valid input produces expected output and persisted state.
+2. **Input Validation Failures**: Missing required fields, malformed formats, boundary violations.
+3. **Conflict Conditions**: Duplicate unique identifiers (email/username) produce `ConflictError`.
+4. **Authentication / Authorization Failures**: Invalid passwords, expired tokens, blocked accounts produce `UnauthorizedError`/`ForbiddenError`.
+5. **Infrastructure Failures**: Database connection timeouts, downstream service errors return safe fallback or 500 error.
+
+---
+
+## Distributed Systems Testing Rules
+- Test duplicate event consumption (Idempotency).
+- Test consumer retry logic with exponential backoff and DLQ routing.
+- Test network timeouts and circuit breaker triggers.
+
+---
+
+## Verification Checklist
+- [ ] Mocks are strictly typed using TypeScript interfaces (zero `any`).
+- [ ] Tests are deterministic and independent (no shared mutable state across tests).
+- [ ] Test suites clean up created data after execution (`afterEach`/`afterAll`).
+- [ ] `npm test` executes and achieves 100% passing status.

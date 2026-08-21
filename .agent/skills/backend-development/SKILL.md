@@ -6,38 +6,57 @@ description: >-
 
 # 🚀 Backend Development Skill
 
-Kỹ năng phát triển Backend chuyên sâu dành cho AI Agent. Hướng dẫn thiết kế và xây dựng hệ thống thay vì chỉ sinh mã nguồn đơn thuần.
+## Purpose
+Provides disciplined guidelines for designing, implementing, and maintaining server-side applications, REST APIs, business services, and domain models.
 
 ---
 
-## 📚 Tài liệu Tham chiếu Kỹ thuật (Sub-Guides):
+## When to Use
+- Implementing new backend endpoints, use cases, or domain logic.
+- Designing API contracts, DTOs, and input validation schemas.
+- Refactoring application layers or introducing Dependency Injection (DI).
+- Setting up error handling, structured logging, and configuration management.
 
-- 🏛️ [Kiến trúc & Ranh giới Nghiệp vụ (Architecture)](./architecture.md)
-- 🌐 [Thiết kế API & DTOs (API Design)](./api-design.md)
-- 🗄️ [Thiết kế Cơ sở Dữ liệu & Tối ưu Query (Database)](./database.md)
-- 🔒 [Bảo mật & Quản lý Xác thực (Security)](./security.md)
-- ⚠️ [Xử lý Lỗi Phân tầng (Error Handling)](./error-handling.md)
-- 📊 [Giám sát & Structured Logging (Observability)](./observability.md)
-- ⚡ [Tối ưu Hiệu năng & Bottlenecks (Performance)](./performance.md)
-- 📨 [Giao tiếp Bất đồng bộ & Message Broker (Messaging)](./messaging.md)
-- 💾 [Chiến lược Bộ nhớ đệm (Caching)](./caching.md)
-- 🚢 [Bảng kiểm tra Xuất bản Production (Production Readiness)](./production-readiness.md)
+## When NOT to Use
+- For purely operational/infrastructure issues without code changes (use `devops`).
+- For dedicated security audits without feature implementation (use `security` or `code-review`).
 
 ---
 
-## 🛠️ Quy trình Triển khai Chuẩn (Step-by-Step Implementation):
+## Core Principles
+1. **Separation of Concerns**: Isolate transport (Controllers/Routes), business logic (Services/Use Cases), and persistence (Repositories/Models).
+2. **Explicit Dependency Injection**: Inject dependencies via constructors to enable unit testing and loose coupling.
+3. **Fail Fast at Boundaries**: Validate external inputs immediately at the DTO layer using decorators or schemas (`class-validator`/`zod`) before touching domain logic.
+4. **Information Hiding**: Transform internal models into explicit Response DTOs using Mappers; never leak database entities directly to API consumers.
 
-1. **Khảo sát & Thiết kế Hợp đồng (Contracts First)**:
-   - Xác định rõ DTO Request / Response.
-   - Định nghĩa Interface cho Repository và Service trong `src/interfaces/`.
-2. **Triển khai Tầng Dữ liệu (Repository & Model)**:
-   - Xây dựng Mongoose Schema / PostgreSQL Table có đánh index hợp lý.
-   - Viết Repository implements Interface, nhận Model qua Constructor Injection.
-3. **Triển khai Tầng Nghiệp vụ (Service & Mapper)**:
-   - Viết Service xử lý logic, mã hóa, tính toán, kiểm tra xung đột.
-   - Chuyển đổi dữ liệu sang DTO an toàn qua Mapper trước khi trả về.
-4. **Triển khai Tầng Giao tiếp (Controller & Router)**:
-   - Gắn `validateDto(DtoClass)` tại Router để chặn dữ liệu sai ngay từ cửa ngõ.
-   - Controller chỉ gọi Service và bọc response qua `ApiResponse`.
-5. **Kiểm tra & Rà soát**:
-   - Chạy `npm run build` hoặc `npx tsc --noEmit` để đảm bảo 0 lỗi kiểu dữ liệu.
+---
+
+## Architecture & Layering Rules
+- **Controller Layer**: Extracts parameters, calls Services, returns `ApiResponse`. Contains **zero** manual validation or database queries.
+- **Service Layer**: Orchestrates business rules, transactions, and event emission. Coordinates with Repositories and Mappers.
+- **Repository Layer**: Encapsulates all query syntax (Mongoose, Prisma, raw SQL).
+- **Mapper Layer**: Explicitly converts between Database Entities and DTOs.
+
+---
+
+## Failure Modes & Mitigation
+- **Leaking Sensitive Fields**: Password hashes or internal IDs exposed in responses. *Mitigation: Strict DTO mappings and `select: false` in schema.*
+- **Unhandled Async Rejections**: Unhandled promises crashing Node process. *Mitigation: Centralized error handling middleware and async route wrappers.*
+- **Memory Leaks from Global State**: Caches without TTL or unclosed event listeners. *Mitigation: Time-bound caches and lifecycle management.*
+
+---
+
+## Anti-Patterns to Avoid
+- Querying the database directly inside Controllers or Express route handlers.
+- Catching exceptions only to ignore them or log without returning/propagating.
+- Using `any` types to bypass TypeScript compile-time safety.
+- Hardcoding magic strings or configuration secrets in source files.
+
+---
+
+## Verification Checklist
+- [ ] DTO schema validates all incoming fields (types, formats, constraints).
+- [ ] Dependencies are injected via constructor.
+- [ ] Custom `AppError` subclasses are used with appropriate HTTP status codes (200, 201, 400, 401, 403, 404, 409, 422).
+- [ ] Structured logging includes correlation IDs for request tracing.
+- [ ] `npm run build` passes with 0 TypeScript compilation errors.

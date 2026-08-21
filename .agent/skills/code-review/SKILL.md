@@ -4,32 +4,42 @@ description: >-
   Senior/Principal-level code review skill. Evaluates code holistically across architecture, security, correctness, database behavior, performance, and maintainability.
 ---
 
-# 🔍 Code Review Skill (Principal Engineer Level)
+# 🔍 Code Review Skill
 
-Kỹ năng rà soát mã nguồn toàn diện ở cấp độ Principal/Senior Backend Reviewer.
-
----
-
-## 📚 Hướng dẫn Rà soát Chuyên sâu:
-
-- 🏛️ [Rà soát Kiến trúc & Khớp nối (Architecture Review)](./architecture-review.md)
-- 🎯 [Tính Đúng đắn & Race Conditions (Correctness)](./correctness.md)
-- 🔒 [Rà soát Lỗ hổng Bảo mật (Security Review)](./security-review.md)
-- ⚡ [Rà soát Hiệu năng & Rò rỉ Bộ nhớ (Performance Review)](./performance-review.md)
-- 🗄️ [Rà soát Cơ sở Dữ liệu & Index (Database Review)](./database-review.md)
-- ⚠️ [Rà soát Xử lý Lỗi & Status Codes (Error Handling Review)](./error-handling-review.md)
-- 🧹 [Khả năng Bảo trì & Clean Code (Maintainability)](./maintainability.md)
-- 📋 [Bảng Checklist Phân loại Mức độ (Review Checklist)](./review-checklist.md)
+## Purpose
+Conducts thorough, holistic code reviews focusing on correctness, architectural integrity, security, data integrity, performance, and maintainability.
 
 ---
 
-## 🎯 Cấu trúc một Báo cáo Review Chuẩn:
+## When to Use
+- Reviewing pull requests, feature branches, or existing modules.
+- Performing pre-commit checks before pushing code.
+- Auditing legacy code for security vulnerabilities and race conditions.
 
-Mỗi vấn đề được phát hiện trong mã nguồn **BẮT BUỘC** trình bày theo 7 mục:
-1. **Mức độ nghiêm trọng (Severity)**: `CRITICAL`, `MAJOR`, hoặc `MINOR`.
-2. **Vị trí (Location)**: Tên file và dòng code cụ thể (`file.ts:L25-L30`).
-3. **Vấn đề (Problem)**: Mô tả ngắn gọn lỗi hoặc rủi ro.
-4. **Tại sao quan trọng (Why It Matters)**: Tác động tiêu cực tới hệ thống.
-5. **Kịch bản Thất bại (Failure Scenario)**: Ví dụ tình huống xảy ra lỗi thực tế.
-6. **Giải pháp Đề xuất (Recommended Fix)**: Hướng khắc phục chuẩn.
-7. **Code Mẫu Cải tiến (Improved Implementation)**: Đoạn code đã sửa.
+## When NOT to Use
+- Purely for linting or cosmetic formatting (delegate to automated linters).
+
+---
+
+## Core Principles
+1. **Holistic Flow Inspection**: Walk the full execution path (`Controller -> Service -> Repository -> Database`) rather than reading isolated diffs.
+2. **Fact-Based Findings**: Distinguish between objective defects/vulnerabilities and subjective style preferences.
+3. **Actionable Recommendations**: Every finding must explain *what*, *why it matters*, *the failure scenario*, and provide a concrete fix.
+
+---
+
+## Severity Classification
+- **CRITICAL**: Immediate security exploit, data corruption, auth bypass, unhandled race conditions. Blocks merge/deployment.
+- **HIGH**: Architecture violation, N+1 queries, missing transactions on multi-table writes, improper error handling.
+- **MEDIUM**: Suboptimal performance, missing index on frequent query fields, redundant code.
+- **LOW**: Minor naming ambiguity, code cleanliness, style consistency.
+- **INFO**: Educational notes or non-blocking architecture observations.
+
+---
+
+## Review Dimensions & Checklist
+1. **Correctness**: Are edge cases (null, empty strings, boundary numbers) handled? Are async operations properly awaited?
+2. **Security**: Are passwords hashed with bcrypt/argon2? Are JWT secrets protected? Are authorizations enforced beyond gateway checks?
+3. **Database**: Are queries bounded by pagination? Are indexes present on filter columns? Are transactions used for atomic operations?
+4. **Error Handling**: Are errors serialized safely without leaking stack traces in production?
+5. **Clean Code**: Are magic numbers replaced with constants/enums? Are obsolete comments removed?
