@@ -21,11 +21,11 @@ Khi nhận một yêu cầu tính năng hoặc refactor, Agent **BẮT BUỘC** 
    ↓
 [STEP 6] Triển khai giải pháp nhỏ nhất và chính xác (Smallest Correct Solution)
    ↓
-[STEP 7] Chạy Typecheck & Kiểm thử tự động (Unit / Integration Tests)
+[STEP 7] BẮT BUỘC CHẠY TEST: Typecheck (`npm run build`) & Unit/Integration Tests
    ↓
 [STEP 8] Tự động Rà soát mã nguồn (Self Code Review)
    ↓
-[STEP 9] Nhận diện các rủi ro còn lại và biện pháp phòng ngừa
+[STEP 9] Nhận diện các rủi ro còn lại và xác nhận 100% Tests Passed
    ↓
 [STEP 10] Tự động Commit & Push lên GitHub theo chuẩn Conventional Commits
 ```
@@ -34,6 +34,7 @@ Khi nhận một yêu cầu tính năng hoặc refactor, Agent **BẮT BUỘC** 
 
 ## 2. Các Điều CẤM KỴ (Anti-Patterns to NEVER Do):
 
+- ❌ **TUYỆT ĐỐI KHÔNG commit hoặc push code nếu chưa chạy test thực tế hoặc build thất bại**.
 - ❌ **Không viết lại toàn bộ dự án** khi chỉ được yêu cầu sửa một phần nhỏ.
 - ❌ **Không tự ý tạo ra các lớp trừu tượng thừa thãi** khi chưa có nhu cầu (Tránh Over-engineering).
 - ❌ **Không validate thủ công trong Controller** (`if (!field)`), phải validate tại DTO.
