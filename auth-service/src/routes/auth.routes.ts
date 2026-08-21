@@ -1,5 +1,10 @@
 import { Router } from 'express';
-import { authController } from '../controllers/auth.controller';
+import {
+  registerController,
+  loginController,
+  tokenController,
+  profileController,
+} from '../controllers';
 import { validateDto } from '../middlewares/validation.middleware';
 import { RegisterDto, LoginDto, RefreshTokenDto } from '../dtos';
 
@@ -8,23 +13,23 @@ const router = Router();
 router.post(
   '/register',
   validateDto(RegisterDto),
-  authController.register.bind(authController)
+  registerController.handle.bind(registerController)
 );
 
 router.post(
   '/login',
   validateDto(LoginDto),
-  authController.login.bind(authController)
+  loginController.handle.bind(loginController)
 );
 
 router.post(
   '/refresh',
   validateDto(RefreshTokenDto),
-  authController.refresh.bind(authController)
+  tokenController.refresh.bind(tokenController)
 );
 
-router.post('/logout', authController.logout.bind(authController));
-router.post('/logout-all', authController.logoutAll.bind(authController));
-router.get('/me', authController.me.bind(authController));
+router.post('/logout', tokenController.logout.bind(tokenController));
+router.post('/logout-all', tokenController.logoutAll.bind(tokenController));
+router.get('/me', profileController.me.bind(profileController));
 
 export default router;

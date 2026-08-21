@@ -1,20 +1,6 @@
 import mongoose, { Model } from 'mongoose';
 import { RefreshTokenModel, IRefreshTokenDocument } from '../models/refresh-token.model';
-
-export interface IRefreshTokenRepository {
-  create(data: {
-    userId: string;
-    token: string;
-    expiresAt: Date;
-    userAgent?: string;
-    ipAddress?: string;
-  }): Promise<IRefreshTokenDocument>;
-
-  findByToken(token: string): Promise<IRefreshTokenDocument | null>;
-  revokeToken(token: string): Promise<void>;
-  revokeAllUserTokens(userId: string): Promise<void>;
-  deleteToken(token: string): Promise<void>;
-}
+import { IRefreshTokenRepository } from '../interfaces';
 
 export class RefreshTokenRepository implements IRefreshTokenRepository {
   constructor(private readonly model: Model<IRefreshTokenDocument> = RefreshTokenModel) {}
