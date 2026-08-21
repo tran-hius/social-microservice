@@ -88,6 +88,7 @@ To avoid **token waste**, **context pollution**, and **reasoning degradation**, 
 - **Learning Dependency & Prerequisite Graph**: [`.agent/knowledge/learning-dependency-graph.md`](file:///D:/social/.agent/knowledge/learning-dependency-graph.md)
 - **Common Engineering Misconceptions**: [`.agent/knowledge/common-misconceptions.md`](file:///D:/social/.agent/knowledge/common-misconceptions.md)
 - **Learner Engineering Profile**: [`.agent/knowledge/learner-profile.md`](file:///D:/social/.agent/knowledge/learner-profile.md)
+- **Engineering Learning Goals & Roadmap**: [`.agent/knowledge/learning-goals.md`](file:///D:/social/.agent/knowledge/learning-goals.md)
 - **System Topography & Ports**: [`.agent/knowledge/project-map.md`](file:///D:/social/.agent/knowledge/project-map.md)
 - **Service Specs & Responsibilities**: [`.agent/knowledge/service-catalog.md`](file:///D:/social/.agent/knowledge/service-catalog.md)
 - **Service Dependencies & Failure Modes**: [`.agent/knowledge/dependency-map.md`](file:///D:/social/.agent/knowledge/dependency-map.md)
