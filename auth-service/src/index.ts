@@ -3,7 +3,7 @@ import cors from 'cors';
 import helmet from 'helmet';
 import dotenv from 'dotenv';
 import { connectDatabase, closeDatabase } from './config/db';
-import authRoutes from './routes/auth.routes';
+import authRoutes from './routes';
 import { errorHandler, notFoundHandler } from './middlewares/error.middleware';
 import { logger } from './utils/logger';
 
