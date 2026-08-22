@@ -84,3 +84,30 @@ sequenceDiagram
 ### ⚠️ Nhược điểm / Rủi ro (Cons / Risks):
 - **Phụ thuộc Redis (Single Point of Failure)**: Nếu Redis sập, Gateway sẽ không check được blacklist.
   *Khắc phục:* Ở môi trường Production (Thực tế), Redis phải được thiết lập chế độ **Cluster** (Cụm nhiều node) hoặc **Sentinel** (Tự động phục hồi) để đảm bảo High Availability (Tính sẵn sàng cao).
+
+---
+
+## 5. Sơ đồ luồng quyết định (Decision Flowchart)
+
+Dưới đây là sơ đồ khối (Flowchart) mô tả chi tiết logic ra quyết định của **API Gateway** khi xử lý một Request đi vào hệ thống:
+
+```mermaid
+flowchart TD
+    Start([Client gửi Request]) --> G[API Gateway nhận Request]
+    G --> HasAuthHeader{Có Header\nAuthorization?}
+    
+    HasAuthHeader -- Không --> Pass[Cho phép đi tiếp\n(Public Route)]
+    HasAuthHeader -- Có --> Verify[Giải mã JWT\n(Verify Signature)]
+    
+    Verify --> IsValid{Chữ ký hợp lệ\nvà còn hạn?}
+    IsValid -- Không --> Fail[Trả về 401\nUnauthorized]
+    IsValid -- Có --> CheckJti{Token có jti\nkhông?}
+    
+    CheckJti -- Không --> SetHeaders[Gắn x-user-id vào Header\n& Cho đi tiếp]
+    CheckJti -- Có --> CheckRedis[(Truy vấn Redis\nauth:blacklist:jti)]
+    
+    CheckRedis --> IsBlocked{Token có bị\nđưa vào Sổ Đen?}
+    IsBlocked -- Có --> FailRevoked[Trả về 401\nToken has been revoked]
+    IsBlocked -- Không --> SetHeaders
+```
+
