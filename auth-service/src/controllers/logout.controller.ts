@@ -1,12 +1,9 @@
 import { NextFunction, Request, Response } from "express";
-import { ITokenService } from "../interfaces/service.interface.js";
-import { tokenService } from "../services/token.service.js";
 import { logoutService } from "../services/logout.service.js";
 import { ApiResponse } from "../utils/api-response.js";
 import { UnauthorizedError } from "../utils/custom-errors.js";
 
 class LogoutController {
-constructor(private readonly service: ITokenService = tokenService) {}
   async logout(
     req: Request<{}, {}, { refreshToken?: string }>,
     res: Response,
@@ -20,11 +17,7 @@ constructor(private readonly service: ITokenService = tokenService) {}
 
       const { refreshToken } = req.body;
 
-      if (accessToken) {
-        await logoutService.execute(accessToken, refreshToken);
-      } else if (refreshToken) {
-        await this.service.logout(refreshToken);
-      }
+      await logoutService.execute(accessToken, refreshToken);
 
       return ApiResponse.success(res, null, "Logged out successfully");
     } catch (error) {
@@ -40,7 +33,7 @@ constructor(private readonly service: ITokenService = tokenService) {}
         throw new UnauthorizedError("Unauthorized: Missing user context");
       }
 
-      await this.service.logoutAll(userId);
+      await logoutService.logoutAll(userId);
       return ApiResponse.success(
         res,
         null,

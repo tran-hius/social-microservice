@@ -11,8 +11,6 @@ export interface ILoginService {
 
 export interface ITokenService {
   refreshTokens(refreshToken: string, metadata?: { userAgent?: string; ipAddress?: string }): Promise<ITokenPair>;
-  logout(refreshToken: string): Promise<void>;
-  logoutAll(userId: string): Promise<void>;
 }
 
 export interface IProfileService {
@@ -20,5 +18,6 @@ export interface IProfileService {
 }
 
 export interface ILogoutService {
-  execute(): Promise<void>
+  execute(accessToken?: string, refreshToken?: string): Promise<void>;
+  logoutAll(userId: string): Promise<void>;
 }

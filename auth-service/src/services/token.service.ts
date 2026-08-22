@@ -55,17 +55,6 @@ export class TokenService implements ITokenService {
 
     return newTokens;
   }
-
-  async logout(refreshToken: string): Promise<void> {
-    if (refreshToken) {
-      await this.tokenRepo.deleteToken(refreshToken);
-    }
-  }
-
-  async logoutAll(userId: string): Promise<void> {
-    await this.tokenRepo.revokeAllUserTokens(userId);
-    logger.info(`Revoked all sessions for user`, { userId });
-  }
 }
 
 export const tokenService = new TokenService();
