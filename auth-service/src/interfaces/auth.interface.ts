@@ -4,6 +4,9 @@ export interface IJwtPayload {
   userId: string;
   email: string;
   role: UserRole;
+  jti?: string;
+  iat?: number;
+  exp?: number;
 }
 
 export interface ITokenPair {

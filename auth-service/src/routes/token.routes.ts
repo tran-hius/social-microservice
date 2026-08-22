@@ -11,7 +11,4 @@ router.post(
   tokenController.refresh.bind(tokenController)
 );
 
-router.post('/logout', tokenController.logout.bind(tokenController));
-router.post('/logout-all', tokenController.logoutAll.bind(tokenController));
-
 export default router;

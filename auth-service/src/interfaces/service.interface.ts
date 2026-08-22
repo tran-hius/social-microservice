@@ -18,3 +18,7 @@ export interface ITokenService {
 export interface IProfileService {
   getProfile(userId: string): Promise<UserResponseDto>;
 }
+
+export interface ILogoutService {
+  execute(): Promise<void>
+}
